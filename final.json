@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "0af89b60-a079-47e2-adda-b20a1f36b567",
+		"name": "DAY2PHASE3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22258682"
+	},
+	"item": [
+		{
+			"name": "post2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 0,\n  \"petId\": {{pet_id}},\n  \"quantity\": 0,\n  \"shipDate\": \"2022-07-24T15:17:32.290Z\",\n  \"status\": \"placed\",\n  \"complete\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"Print before test start execution\");",
+							"",
+							"function randomString(length) {",
+							"    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);",
+							"}",
+							"",
+							"pm.environment.set('email_id' , randomString(10)+\"@gmail.com\");",
+							"",
+							"function getrandonInt(length) {",
+							"return Math.floor(Math.pow(10, length-1) + Math.random() * 9 * Math.pow(10, length-1));",
+							"}",
+							"",
+							"pm.environment.set('phone_num' , getrandonInt(10));",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"MITHUN\",\n    \"job\": \"TESTER\",\n    \"email\": \"{{email_id}}\",\n    \"phone\": {{phone_num}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"let myJsonresponse = pm.response.json();",
+							"",
+							"//console.log(myJsonresponse);",
+							"",
+							"console.log(myJsonresponse.support.url);",
+							"",
+							"console.log(typeof  myJsonresponse.support.url);",
+							"",
+							"pm.test(\"I am going to validate that the page number is ==2\",",
+							"function(){pm.expect(myJsonresponse.page).to.eq(2);})",
+							"",
+							"pm.test(\"Support URL is PASS\",",
+							"function(){pm.expect(myJsonresponse.support.url).to.eq('https://reqres.in/#support-heading');})",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "pet_id",
+			"value": "150",
+			"type": "string"
+		}
+	]
+}

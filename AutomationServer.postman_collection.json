@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "8cc7f201-ab4d-4616-b1ca-859fa4f75bbb",
+		"name": "AutomationServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22258682"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "https://twitter.com",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://twitter.com",
+							"protocol": "https",
+							"host": [
+								"twitter",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://www.google.com/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://www.google.com/",
+							"protocol": "https",
+							"host": [
+								"www",
+								"google",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>2001</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"NumberConversion.wso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://reqres.in/api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"MITHUN TESTER\",\n    \"job\": \"Automation Testing\",\n    \"Title\":\"HELLO POSTMAN\",\n    \"Phone\": 1234567890\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://reqres.in/api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"MITHUN TESTER\",\n    \"job\": \"Automation Testing\",\n    \"Title\":\"HELLO POSTMAN\",\n    \"Phone\": 1234567890\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
